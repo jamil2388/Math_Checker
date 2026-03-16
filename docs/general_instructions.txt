@@ -1,0 +1,71 @@
+Python Automation Developer –
+Pre‑Interview Technical Task
+
+Objective
+Design a Python‑based system that can automatically generate arithmetic worksheets.
+The goal of this exercise is to understand your system design approach, code structure,
+and extensibility thinking, rather than simply producing a working script. During the
+interview, you will be asked to explain your design and walk through your
+implementation.
+
+System Requirements
+The system should perform three main tasks:
+1. Load problem type definitions from an Excel configuration file
+2. Generate 100 arithmetic problems
+3. Export the worksheet as a printable PDF document (attach demo PDF document)
+
+1. Excel‑Based Problem Type Configuration
+The system must not hard‑code problem types inside the Python program. Instead,
+problem definitions should be stored in an external Excel file. The Python system should
+read the Excel file, interpret the problem type rules, and use these rules to generate
+problems.
+Example configuration structure:
+Type_ID Description Condition Percentage
+T1 Sum &lt; 10 a + b &lt; 10 40
+T2 Sum = 10 a + b = 10 20
+T3 Sum &gt; 10 a + b &gt; 10 25
+T4 Contains zero a == 0 or b == 0 10
+T5 Same numbers a == b 5
+Your system should be designed so that new problem types can be added simply by
+modifying the Excel file without changing the Python code.
+
+2. Problem Generation
+
+The system should generate exactly 100 one‑digit addition problems. It should follow the
+distribution percentages defined in the Excel file and ensure that each generated
+problem satisfies the defined rules.
+
+3. PDF Worksheet Output
+The final output should be a printable worksheet PDF similar to a typical math practice
+sheet. The layout should include:
+• Title
+• Name field
+• Date field
+• Score field
+• Instructions such as &#39;Calculate each sum.&#39;
+• A grid layout containing 100 problems
+Example problem display:
+4
++3
+__
+
+Design Expectations
+The focus of this exercise is the system design. Please consider how configuration is
+loaded, how rules are interpreted, how distribution percentages are enforced, how the
+worksheet layout is generated, and how the system could support additional problem
+types in the future. The design should also allow future expansion, for example from
+one-digit addition to multi-digit addition, and eventually to multiple modules such as
+subtraction or multiplication. The system should therefore be modular so that new
+modules and problem types can be added easily.
+
+What to Prepare for the Interview
+During the interview, please be ready to:
+• Explain your system architecture
+• Walk through your code structure
+• Explain how the Excel configuration is processed
+• Explain how the worksheet PDF is generated
+• Discuss how the system could be extended in the future
+
+Expected Scope
+This task is intended to be lightweight and does not need to be production‑ready. The
+focus is on design thinking and code organization.
