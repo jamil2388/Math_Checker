@@ -21,11 +21,13 @@ Math_Checker/
 │   ├── config_loader.py        # logic for reading and parsing Excel configuration.
 │   ├── models.py               # Core data structures (ProblemType, MathProblem).
 │   ├── problem_generator.py    # The main engine for problem creation and rule evaluation.
-│   └── worksheet_generator.py  # PDF rendering logic using ReportLab.
+│   ├── worksheet_generator.py  # PDF rendering logic using ReportLab.
+│   └── main.py                 # CLI entry point and orchestration logic.
 ├── tests/
 │   ├── test_config_loader.py   # Validation suite for configuration parsing.
 │   ├── test_problem_generator.py # Validation suite for the generation engine.
-│   └── test_worksheet_generator.py # Validation suite for PDF generation and layout.
+│   ├── test_worksheet_generator.py # Validation suite for PDF generation and layout.
+│   └── test_integration.py     # End-to-end system validation.
 ├── PROJECT_DESCRIPTION.md      # This comprehensive documentation file.
 ├── GEMINI.md                   # Development mandates, coding style, and standards.
 ├── MILESTONES.md               # Tracking of project completion phases.
@@ -137,6 +139,23 @@ The presentation layer responsible for creating a printable PDF document.
     - **Arguments:**
         - `problems` (list[MathProblem]): Exactly 100 problems to render.
         - `title` (str): Title for the header.
+    - **Returns:** `None`
+
+---
+
+### 3.5 `src/main.py`
+
+The command-line interface (CLI) and system orchestrator.
+- **`run_system(config_path: str, output_path: str, title: str)`**
+    - **Function:** Links the ConfigLoader, ProblemGenerator, and WorksheetGenerator to execute the full generation pipeline.
+    - **Arguments:**
+        - `config_path` (str): Path to the Excel config.
+        - `output_path` (str): Path for the resulting PDF.
+        - `title` (str): Custom title for the worksheet.
+    - **Returns:** `None`
+- **`main()`**
+    - **Function:** Handles command-line argument parsing using `argparse`.
+    - **Arguments:** Supports `--config`, `--output`, and `--title` flags.
     - **Returns:** `None`
 
 ---

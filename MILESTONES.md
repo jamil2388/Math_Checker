@@ -21,7 +21,7 @@ This file tracks the major milestones and development phases of the Math Workshe
 - [x] Implement the vertical math problem rendering (aligning numbers and operator).
 
 ## Phase 4: Integration & Final Polish
-- [ ] Create `main.py` to orchestrate the flow: Load Config -> Generate -> Save PDF.
-- [ ] Add CLI argument parsing for input config and output path.
-- [ ] detailed comments and documentation as per GEMINI.md.
-- [ ] Verify the output against `math_samples_1.pdf` style.
+- [x] Create `main.py` to orchestrate the flow: Load Config -> Generate -> Save PDF.
+- [x] Add CLI argument parsing for input config and output path.
+- [x] detailed comments and documentation as per GEMINI.md.
+- [x] Verify the output against `math_samples_1.pdf` style.
