@@ -15,10 +15,10 @@ This file tracks the major milestones and development phases of the Math Workshe
 - [x] Ensure generation logic supports future expansion (multi-digit, other operations).
 
 ## Phase 3: PDF Output Generation
-- [ ] Implement `WorksheetGenerator` class using a library like `reportlab`.
-- [ ] Create the visual layout: Header (Title, Name, Date, Score), Instructions.
-- [ ] Implement the grid layout for 100 problems.
-- [ ] Implement the vertical math problem rendering (aligning numbers and operator).
+- [x] Implement `WorksheetGenerator` class using a library like `reportlab`.
+- [x] Create the visual layout: Header (Title, Name, Date, Score), Instructions.
+- [x] Implement the grid layout for 100 problems.
+- [x] Implement the vertical math problem rendering (aligning numbers and operator).
 
 ## Phase 4: Integration & Final Polish
 - [ ] Create `main.py` to orchestrate the flow: Load Config -> Generate -> Save PDF.

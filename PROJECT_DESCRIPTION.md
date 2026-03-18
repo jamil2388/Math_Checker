@@ -7,7 +7,7 @@ This document serves as the technical reference for the Math Worksheet Generator
 The system is designed using **Object-Oriented Programming (OOP)** and **Test-Driven Development (TDD)** principles. It consists of three primary layers:
 1.  **Configuration Layer:** Handles external Excel-based rules.
 2.  **Logic Engine:** Evaluates rules and generates math problems.
-3.  **Presentation Layer:** (Upcoming) Renders the final problems into a printable PDF.
+3.  **Presentation Layer:** Renders the final problems into a printable PDF using ReportLab.
 
 ---
 
@@ -20,10 +20,12 @@ Math_Checker/
 │   ├── __init__.py             # Package initializer.
 │   ├── config_loader.py        # logic for reading and parsing Excel configuration.
 │   ├── models.py               # Core data structures (ProblemType, MathProblem).
-│   └── problem_generator.py    # The main engine for problem creation and rule evaluation.
+│   ├── problem_generator.py    # The main engine for problem creation and rule evaluation.
+│   └── worksheet_generator.py  # PDF rendering logic using ReportLab.
 ├── tests/
 │   ├── test_config_loader.py   # Validation suite for configuration parsing.
-│   └── test_problem_generator.py # Validation suite for the generation engine.
+│   ├── test_problem_generator.py # Validation suite for the generation engine.
+│   └── test_worksheet_generator.py # Validation suite for PDF generation and layout.
 ├── PROJECT_DESCRIPTION.md      # This comprehensive documentation file.
 ├── GEMINI.md                   # Development mandates, coding style, and standards.
 ├── MILESTONES.md               # Tracking of project completion phases.
@@ -103,6 +105,39 @@ The core computational engine of the application.
         - `problem_types` (list[ProblemType]): The list of rules to use.
         - `total` (int): The total number of problems requested (default 100).
     - **Returns:** `list[MathProblem]`: 100 randomized, valid problems.
+
+---
+
+### 3.4 `src/worksheet_generator.py`
+
+#### `class WorksheetGenerator`
+The presentation layer responsible for creating a printable PDF document.
+- **`__init__(self, output_path: str)`**
+    - **Function:** Initializes the generator with a destination file path.
+    - **Arguments:** `output_path` (str): Where the `.pdf` file will be written.
+    - **Returns:** `None`
+- **`_draw_header(self, c: canvas.Canvas, title: str)`**
+    - **Function:** Draws the Title, Name/Date/Score fields, and Instructions.
+    - **Arguments:**
+        - `c` (canvas.Canvas): The reportlab canvas.
+        - `title` (str): The main title of the worksheet.
+    - **Returns:** `None`
+- **`_draw_problem(self, c: canvas.Canvas, x: float, y: float, problem: MathProblem)`**
+    - **Function:** Renders a single math problem in a vertical format.
+    - **Logic:** Uses a monospaced font (`Courier-Bold`) and right-alignment to ensure operands and the horizontal line are mathematically correct and visually centered.
+    - **Arguments:**
+        - `c` (canvas.Canvas): The reportlab canvas.
+        - `x` (float): Horizontal position.
+        - `y` (float): Vertical position.
+        - `problem` (MathProblem): Data for the specific problem.
+    - **Returns:** `None`
+- **`generate_pdf(self, problems: list[MathProblem], title: str = "Arithmetic Practice")`**
+    - **Function:** Creates the final 10x10 grid on a US Letter-sized page.
+    - **Logic:** Calculates grid coordinates (x, y) for 100 problems and handles the final file saving.
+    - **Arguments:**
+        - `problems` (list[MathProblem]): Exactly 100 problems to render.
+        - `title` (str): Title for the header.
+    - **Returns:** `None`
 
 ---
 
