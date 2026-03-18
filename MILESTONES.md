@@ -9,10 +9,10 @@ This file tracks the major milestones and development phases of the Math Workshe
 - [x] Define data structures for `ProblemType` and `MathProblem`.
 
 ## Phase 2: Problem Generation Engine
-- [ ] Implement `ProblemGenerator` class to handle generation logic.
-- [ ] Implement a flexible rule evaluator to interpret conditions (e.g., "a + b < 10") from the config.
-- [ ] Implement logic to generate exactly 100 problems matching the distribution percentages.
-- [ ] Ensure generation logic supports future expansion (multi-digit, other operations).
+- [x] Implement `ProblemGenerator` class to handle generation logic.
+- [x] Implement a flexible rule evaluator to interpret conditions (e.g., "a + b < 10") from the config.
+- [x] Implement logic to generate exactly 100 problems matching the distribution percentages.
+- [x] Ensure generation logic supports future expansion (multi-digit, other operations).
 
 ## Phase 3: PDF Output Generation
 - [ ] Implement `WorksheetGenerator` class using a library like `reportlab`.

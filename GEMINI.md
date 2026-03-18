@@ -28,3 +28,14 @@ write a housekeeping or util function for that, and then just call that to reduc
 start committing to that branch for that milestone / feature, otherwise ask me for naming a branch
 - Always mark the milestones checked whichever milestone goes successful, definitely upon approval
 - Explicitly mention to me the number and point of the milestone that gets checked, so that we are on the same page
+
+## Project Descriptions
+
+- If you are starting a project, create a file named PROJECT_DESCRIPTION.md (if not already there)
+- Include the project tree of the code files and whichever are significant enough to include in descriptions
+- This file will serve the purpose of a manuscript for the project to a non-participating dev, such that he grabs the gist quickly
+- It is different from README.md, because it contains all the detailed descriptions, purpose and functionalities of the project,
+which we don't mention in the README.md
+- Always update the PROJECT_DESCRIPTION.md file after writing every new function, or making considerable amount of revisions
+- Always keep the project tree inside the PROJECT_DESCRIPTION.md up-to-date
+- The insignificant files are not needed to be mentioned inside this file
