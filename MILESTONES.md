@@ -3,10 +3,10 @@
 This file tracks the major milestones and development phases of the Math Worksheet Generator project.
 
 ## Phase 1: Core Architecture & Configuration
-- [ ] Create project structure (`src/`, `config/`, `tests/`) and `requirements.txt`.
-- [ ] Create a sample Excel configuration file (`config/problem_types.xlsx`) with rules.
-- [ ] Implement `ConfigLoader` class to read Excel and parse problem definitions.
-- [ ] Define data structures for `ProblemType` and `MathProblem`.
+- [x] Create project structure (`src/`, `config/`, `tests/`) and `requirements.txt`.
+- [x] Create a sample Excel configuration file (`config/problem_types.xlsx`) with rules.
+- [x] Implement `ConfigLoader` class to read Excel and parse problem definitions.
+- [x] Define data structures for `ProblemType` and `MathProblem`.
 
 ## Phase 2: Problem Generation Engine
 - [ ] Implement `ProblemGenerator` class to handle generation logic.
