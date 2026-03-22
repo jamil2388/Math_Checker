@@ -85,3 +85,47 @@ def test_generate_all_distribution():
     # Check if distribution is exactly as requested (60/40)
     assert count_t1 == 60
     assert count_t2 == 40
+
+def test_dynamic_range_inference():
+    """
+    Test that the generator can infer a larger range when the condition involves multi-digit numbers.
+    """
+    if ProblemGenerator is None:
+        pytest.fail("ProblemGenerator class has not been implemented yet.")
+        
+    generator = ProblemGenerator()
+    # Condition implies numbers up to at least 50
+    pt = ProblemType("T1", "Sum around 50", "a + b > 45 && a + b < 55", 100)
+    
+    problem = generator.generate_problem(pt)
+    assert 45 < problem.a + problem.b < 55
+    # At least one number must be > 9 for this to be a multi-digit test
+    assert problem.a > 9 or problem.b > 9
+
+def test_operator_inference_subtraction():
+    """
+    Test that the generator infers the subtraction operator from the condition.
+    """
+    if ProblemGenerator is None:
+        pytest.fail("ProblemGenerator class has not been implemented yet.")
+        
+    generator = ProblemGenerator()
+    pt = ProblemType("T2", "Subtraction", "a - b > 0", 100)
+    
+    problem = generator.generate_problem(pt)
+    assert problem.operator == '-'
+    assert problem.a - problem.b > 0
+
+def test_operator_inference_multiplication():
+    """
+    Test that the generator infers the multiplication operator from the condition.
+    """
+    if ProblemGenerator is None:
+        pytest.fail("ProblemGenerator class has not been implemented yet.")
+        
+    generator = ProblemGenerator()
+    pt = ProblemType("T3", "Multiplication", "a * b == 12", 100)
+    
+    problem = generator.generate_problem(pt)
+    assert problem.operator == '*'
+    assert problem.a * problem.b == 12

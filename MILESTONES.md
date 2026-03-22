@@ -27,4 +27,7 @@ This file tracks the major milestones and development phases of the Math Workshe
 - [x] Verify the output against `math_samples_1.pdf` style.
 
 ## Phase 5: Updates (Branch: feature/dynamic-inference)
-- [ ] Implement dynamic range and operator inference from logic conditions in `ProblemGenerator`.
+- [x] Implement dynamic range and operator inference from logic conditions in `ProblemGenerator`.
+- [ ] *Pending: Support for problems with three operands (e.g., "a + b + c").*
+- [ ] *Pending: Ensure division rules only generate integer results.*
+- [ ] *Pending: Add CLI flag to manually override the inferred search headroom.*
