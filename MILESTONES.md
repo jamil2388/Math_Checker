@@ -25,3 +25,6 @@ This file tracks the major milestones and development phases of the Math Workshe
 - [x] Add CLI argument parsing for input config and output path.
 - [x] detailed comments and documentation as per GEMINI.md.
 - [x] Verify the output against `math_samples_1.pdf` style.
+
+## Phase 5: Updates (Branch: feature/dynamic-inference)
+- [ ] Implement dynamic range and operator inference from logic conditions in `ProblemGenerator`.
